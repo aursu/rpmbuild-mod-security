@@ -8,7 +8,7 @@
 %bcond_without mlogc
 
 Summary: Security module for the Apache HTTP Server
-Name: mod_security 
+Name: mod_security
 Version: 2.9.3
 Release: 1%{?dist}
 License: ASL 2.0
@@ -37,8 +37,9 @@ BuildRequires: pkgconfig(lua)
 %if 0%{?el6}
 BuildRequires: yajl-devel
 %else
-BuildRequires: pkgconfig(yajl)  
+BuildRequires: pkgconfig(yajl)
 %endif
+BuildRequires: expat-devel
 
 
 %description
@@ -51,7 +52,7 @@ as a powerful umbrella - shielding web applications from attacks.
 Summary:        ModSecurity Audit Log Collector
 Group:          System Environment/Daemons
 Requires:       mod_security
-%if 0%{fedora} || 0%{?rhel} > 7
+%if 0%{?fedora} || 0%{?rhel} > 7
 # Ensure apache user exists for file ownership
 Requires(pre):  httpd-filesystem
 %endif
@@ -300,7 +301,7 @@ install -m0644 mlogc/mlogc-default.conf %{buildroot}%{_sysconfdir}/mlogc.conf
 
 * Wed Sep 12 2012 Athmane Madjoudj <athmane@fedoraproject.org> 2.6.7-2
 - Re-add mlogc sub-package for epel (#856525)
- 
+
 * Sat Aug 25 2012 Athmane Madjoudj <athmane@fedoraproject.org> 2.6.7-1
 - Update to 2.6.7
 
@@ -312,7 +313,7 @@ install -m0644 mlogc/mlogc-default.conf %{buildroot}%{_sysconfdir}/mlogc.conf
 
 * Fri Jun 22 2012 Peter Vrabec <pvrabec@redhat.com> - 2.6.6-2
 - mlogc subpackage is not provided on RHEL
- 
+
 * Thu Jun 21 2012 Peter Vrabec <pvrabec@redhat.com> - 2.6.6-1
 - upgrade
 
@@ -438,7 +439,7 @@ install -m0644 mlogc/mlogc-default.conf %{buildroot}%{_sysconfdir}/mlogc.conf
 - Bump for new httpd
 
 * Thu Dec 1 2005 Michael Fleming <mfleming+rpm@enlartenment.com> 1.9.1-1
-- New release 1.9.1 
+- New release 1.9.1
 
 * Wed Nov 9 2005 Michael Fleming <mfleming+rpm@enlartenment.com> 1.9-1
 - New stable upstream release 1.9
