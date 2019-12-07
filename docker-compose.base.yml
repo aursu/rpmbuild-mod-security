@@ -1,0 +1,12 @@
+version: "3.4"
+services:
+  centos6modsecbase:
+    build:
+      context: .
+      dockerfile: Dockerfile.6-base
+    image: rpmbuild:6-modsecbase
+  centos7modsecbase:
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    image: rpmbuild:7-modsecbase
